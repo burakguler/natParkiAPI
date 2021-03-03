@@ -13,6 +13,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using ParkiAPI.Data;
 using ParkiAPI.Repository.IRepository;
+using AutoMapper;
+using ParkiAPI.ParkiMapper;
 
 namespace ParkiAPI
 {
@@ -36,6 +38,7 @@ namespace ParkiAPI
                 Creates an instance for each incoming web request and 
                 uses the same instance for each incoming request, 
                 creates a new instance for different web requests. */
+            services.AddAutoMapper(typeof(ParkiMapping));
 
             services.AddControllers();
         }

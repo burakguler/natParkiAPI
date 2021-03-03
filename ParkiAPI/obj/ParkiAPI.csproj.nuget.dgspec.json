@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Burak\\source\\repos\\natParki\\ParkiAPI\\ParkiAPI.csproj": {}
+    "C:\\Users\\Burak\\Documents\\GitHub\\natParkiAPI\\ParkiAPI\\ParkiAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Burak\\source\\repos\\natParki\\ParkiAPI\\ParkiAPI.csproj": {
+    "C:\\Users\\Burak\\Documents\\GitHub\\natParkiAPI\\ParkiAPI\\ParkiAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Burak\\source\\repos\\natParki\\ParkiAPI\\ParkiAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Burak\\Documents\\GitHub\\natParkiAPI\\ParkiAPI\\ParkiAPI.csproj",
         "projectName": "ParkiAPI",
-        "projectPath": "C:\\Users\\Burak\\source\\repos\\natParki\\ParkiAPI\\ParkiAPI.csproj",
+        "projectPath": "C:\\Users\\Burak\\Documents\\GitHub\\natParkiAPI\\ParkiAPI\\ParkiAPI.csproj",
         "packagesPath": "C:\\Users\\Burak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Burak\\source\\repos\\natParki\\ParkiAPI\\obj\\",
+        "outputPath": "C:\\Users\\Burak\\Documents\\GitHub\\natParkiAPI\\ParkiAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Burak\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -42,6 +42,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.3, )"

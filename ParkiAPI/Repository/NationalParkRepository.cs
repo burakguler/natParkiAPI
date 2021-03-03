@@ -15,30 +15,30 @@ namespace ParkiAPI.Repository.IRepository
             _db = db;
         }
 
-        public bool UpdateNationalPark(NationalPark nationalPark)
+        public bool UpdateNationalPark(NationalParkDto nationalPark)
         {
             _db.NationalPark.Update(nationalPark);
             return Save();
         }
 
-        public bool CreateNationalPark(NationalPark nationalPark)
+        public bool CreateNationalPark(NationalParkDto nationalPark)
         {
             _db.NationalPark.Add(nationalPark);
             return Save();
         }
 
-        public bool DeleteNationalPark(NationalPark nationalPark)
+        public bool DeleteNationalPark(NationalParkDto nationalPark)
         {
             _db.NationalPark.Remove(nationalPark);
             return Save();
         }
 
-        public NationalPark GetNationalPark(int nationalParkId)
+        public NationalParkDto GetNationalPark(int nationalParkId)
         {
             return _db.NationalPark.FirstOrDefault(a => a.Id == nationalParkId);
         }
 
-        public ICollection<NationalPark> GetNationalParks()
+        public ICollection<NationalParkDto> GetNationalParks()
         {
             return _db.NationalPark.OrderBy(a => a.name).ToList();
         }
