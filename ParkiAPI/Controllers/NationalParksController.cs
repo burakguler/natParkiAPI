@@ -36,7 +36,7 @@ namespace ParkiAPI.Controllers
             return Ok(objDto); 
         }
 
-        [HttpGet("{nationalParkId:int}")]
+        [HttpGet("{nationalParkId:int}", Name ="GetNationalPark")]
         public IActionResult GetNationalPark(int nationalParkId) // gettingById singular item
         {
             var obje = this.nationalParkRepository.GetNationalPark(nationalParkId);
@@ -76,7 +76,7 @@ namespace ParkiAPI.Controllers
                return StatusCode(500, ModelState);
             }
 
-            return Ok();
+            return CreatedAtRoute("GetNationalPark", new { nationalParkId=nationalParkobje.Id},nationalParkobje);
         }
 
     }
