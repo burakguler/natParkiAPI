@@ -1,12 +1,8 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ParkiAPI.Models;
 using ParkiAPI.Repository.IRepository;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ParkiAPI.Controllers
 {
@@ -52,5 +48,36 @@ namespace ParkiAPI.Controllers
             var objDto = this.mapper.Map<NationalParkDto>(obje);
             return Ok(objDto);
         }
+
+        [HttpPost]
+        public IActionResult CreateNationalPark([FromBody] NationalParkDto nationalParkDto)
+        {
+            if (nationalParkDto == null) // if dto table/form null return bad reques
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (this.nationalParkRepository.NationalParkExists(nationalParkDto.name))
+            {                           // if this national does exists return error message down below and return status code 404         
+                ModelState.AddModelError("", "National Park Exists!"); 
+                return StatusCode(404, ModelState);
+            }
+            if (!ModelState.IsValid)    // if model state is not valid return bad request error
+            {
+                return BadRequest(ModelState);
+            }
+
+            // if everythings fine continue to work
+            var nationalParkobje = this.mapper.Map<NationalPark>(nationalParkDto);
+            if (!this.nationalParkRepository.CreateNationalPark(nationalParkobje))
+            {
+               ModelState.AddModelError("", $"Something went wrong when saving the record {nationalParkobje.name}");
+
+               return StatusCode(500, ModelState);
+            }
+
+            return Ok();
+        }
+
     }
 }

@@ -12,7 +12,7 @@ namespace ParkiAPI.Models
         public int Id { get; set; }
         public string name { get; set; }
         public string location { get; set; }
-        public float area { get; set; }
+        public string area { get; set; }
         public DateTime created { get; set; }
         public DateTime listingDate { get; set; }
 

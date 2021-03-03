@@ -14,7 +14,7 @@ namespace ParkiAPI.Models
         public string name { get; set; }
         [Required]
         public string location { get; set; }
-        public float area { get; set; }
+        public string area { get; set; }
         public DateTime created { get; set; }
         public DateTime listingDate { get; set; }
 
