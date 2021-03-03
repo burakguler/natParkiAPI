@@ -66,6 +66,7 @@ namespace ParkiAPI
             app.UseSwaggerUI(options => 
             {
                 options.SwaggerEndpoint("/swagger/natParkiOpenAPISpec/swagger.json", "natParki API");
+                options.RoutePrefix = "";
             });
 
             app.UseRouting();
