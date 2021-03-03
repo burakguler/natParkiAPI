@@ -10,37 +10,36 @@ namespace ParkiAPI.Repository.IRepository
     public class NationalParkRepository : INationalParkRepository
     {
         private readonly ApplicationDbContext _db;
-        public NationalParkRepository(ApplicationDbContext db) //dependency injection
+        public NationalParkRepository(ApplicationDbContext db) //dependency injection ~Burak
         {
             _db = db;
         }
 
-        public bool UpdateNationalPark(NationalPark nationalPark)
-        {
-            _db.NationalPark.Update(nationalPark);
-            return Save();
-        }
-
-        public bool CreateNationalPark(NationalPark nationalPark)
+        public bool CreateNationalPark(NationalPark nationalPark)   //Create
         {
             _db.NationalPark.Add(nationalPark);
             return Save();
         }
 
-        public bool DeleteNationalPark(NationalPark nationalPark)
-        {
-            _db.NationalPark.Remove(nationalPark);
-            return Save();
-        }
-
-        public NationalPark GetNationalPark(int nationalParkId)
-        {
+        public NationalPark GetNationalPark(int nationalParkId)     //Read(select by Id)
+        {   
             return _db.NationalPark.FirstOrDefault(a => a.Id == nationalParkId);
         }
 
         public ICollection<NationalPark> GetNationalParks()
         {
-            return _db.NationalPark.OrderBy(a => a.name).ToList();
+            return _db.NationalPark.OrderBy(a => a.name).ToList();  //Read(select by name)
+        }
+
+        public bool UpdateNationalPark(NationalPark nationalPark)  //Update
+        {
+            _db.NationalPark.Update(nationalPark);
+            return Save();
+        }
+        public bool DeleteNationalPark(NationalPark nationalPark)  //Delete
+        {
+            _db.NationalPark.Remove(nationalPark);
+            return Save();
         }
 
         public bool NationalParkExists(string name)

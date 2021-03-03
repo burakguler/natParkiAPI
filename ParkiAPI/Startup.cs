@@ -37,7 +37,7 @@ namespace ParkiAPI
             /* ^ after this code you can access the national park repository on any of controllers
                 Creates an instance for each incoming web request and 
                 uses the same instance for each incoming request, 
-                creates a new instance for different web requests. */
+                creates a new instance for different web requests. ~Burak */
             services.AddAutoMapper(typeof(ParkiMapping));
 
             services.AddControllers();
