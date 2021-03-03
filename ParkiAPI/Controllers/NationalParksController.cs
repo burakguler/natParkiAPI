@@ -79,5 +79,24 @@ namespace ParkiAPI.Controllers
             return CreatedAtRoute("GetNationalPark", new { nationalParkId=nationalParkobje.Id},nationalParkobje);
         }
 
+        [HttpPatch("{nationalParkId:int}", Name = "UpdateNationalPark")]
+        public IActionResult UpdateNationalPark(int nationalParkId,[FromBody] NationalParkDto nationalParkDto)
+        {
+            if (nationalParkDto == null || nationalParkId!=nationalParkDto.Id) // if dto table/form null return bad request
+            {
+                return BadRequest(ModelState);
+            }
+
+            // if everythings fine continue to work
+            var nationalParkobje = this.mapper.Map<NationalPark>(nationalParkDto);
+            if (!this.nationalParkRepository.UpdateNationalPark(nationalParkobje))
+            {
+                ModelState.AddModelError("", $"Something went wrong when saving the record {nationalParkobje.name}");
+
+                return StatusCode(500, ModelState);
+            }
+            return NoContent();
+        }
+
     }
 }
