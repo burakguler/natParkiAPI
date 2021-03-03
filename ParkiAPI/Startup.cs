@@ -44,11 +44,24 @@ namespace ParkiAPI
             services.AddSwaggerGen(options=>
             {
                 options.SwaggerDoc("natParkiOpenAPISpec",
-                    new Microsoft.OpenApi.Models.OpenApiInfo() 
+                    new Microsoft.OpenApi.Models.OpenApiInfo()
                     {
                         Title = "natParki API",
-                        Version = "1.0"
-                    });
+                        Version = "1.0",
+                        Description = "This rest API developed to understand Web API structure, SOLID principles and design patterns (repository, DTO etc.).",
+                        Contact = new Microsoft.OpenApi.Models.OpenApiContact()
+                        {
+                            Email = "guler-burak@outlook.com",
+                            Name = "Burak Güler",
+                            Url = new Uri("https://www.linkedin.com/in/guler-burak/"),
+                        },
+                        License = new Microsoft.OpenApi.Models.OpenApiLicense()
+                        {
+                            Name = "MIT License",
+                            Url = new Uri("https://en.wikipedia.org/wiki/MIT_License"),
+                        },
+                        
+                    }); 
                 var xmlCommentFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var cmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory,xmlCommentFile);
                 options.IncludeXmlComments(cmlCommentsFullPath);
