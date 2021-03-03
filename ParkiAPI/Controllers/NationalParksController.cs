@@ -22,6 +22,10 @@ namespace ParkiAPI.Controllers
             this.mapper = mapper;
         }
 
+        /// <summary>
+        /// Get list of National Parks.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult GetNationalParks()
         {
@@ -35,7 +39,11 @@ namespace ParkiAPI.Controllers
             }
             return Ok(objDto); 
         }
-
+        /// <summary>
+        /// Get individual National Park.
+        /// </summary>
+        /// <param name="nationalParkId">The Id of the National Park</param>
+        /// <returns></returns>
         [HttpGet("{nationalParkId:int}", Name ="GetNationalPark")]
         public IActionResult GetNationalPark(int nationalParkId) // gettingById singular item ~Burak
         {

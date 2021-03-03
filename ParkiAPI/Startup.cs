@@ -15,6 +15,8 @@ using ParkiAPI.Data;
 using ParkiAPI.Repository.IRepository;
 using AutoMapper;
 using ParkiAPI.ParkiMapper;
+using System.Reflection;
+using System.IO;
 
 namespace ParkiAPI
 {
@@ -45,8 +47,11 @@ namespace ParkiAPI
                     new Microsoft.OpenApi.Models.OpenApiInfo() 
                     {
                         Title = "natParki API",
-                        Version = "1"
+                        Version = "1.0"
                     });
+                var xmlCommentFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var cmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory,xmlCommentFile);
+                options.IncludeXmlComments(cmlCommentsFullPath);
             });
             services.AddControllers();
         }

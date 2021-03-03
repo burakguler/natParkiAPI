@@ -133,3 +133,4 @@ C:\Users\Burak\Documents\GitHub\natParkiAPI\ParkiAPI\bin\Debug\netcoreapp3.1\Swa
 C:\Users\Burak\Documents\GitHub\natParkiAPI\ParkiAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Burak\Documents\GitHub\natParkiAPI\ParkiAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Burak\Documents\GitHub\natParkiAPI\ParkiAPI\obj\Debug\netcoreapp3.1\ParkiAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Burak\Documents\GitHub\natParkiAPI\ParkiAPI\bin\Debug\netcoreapp3.1\ParkiAPI.xml
