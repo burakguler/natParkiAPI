@@ -67,6 +67,10 @@
             "Microsoft.SqlServer.Types": {
               "target": "Package",
               "version": "[14.0.1016.290, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.0.7, )"
             }
           },
           "imports": [

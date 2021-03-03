@@ -39,7 +39,15 @@ namespace ParkiAPI
                 uses the same instance for each incoming request, 
                 creates a new instance for different web requests. ~Burak */
             services.AddAutoMapper(typeof(ParkiMapping));
-
+            services.AddSwaggerGen(options=>
+            {
+                options.SwaggerDoc("natParkiOpenAPISpec",
+                    new Microsoft.OpenApi.Models.OpenApiInfo() 
+                    {
+                        Title = "natParki API",
+                        Version = "1"
+                    });
+            });
             services.AddControllers();
         }
 
@@ -52,6 +60,13 @@ namespace ParkiAPI
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(options => 
+            {
+                options.SwaggerEndpoint("/swagger/natParkiOpenAPISpec/swagger.json", "natParki API");
+            });
 
             app.UseRouting();
 
