@@ -28,7 +28,7 @@ namespace ParkiAPI.Repository.IRepository
 
         public ICollection<NationalPark> GetNationalParks()
         {
-            return _db.NationalPark.OrderBy(a => a.name).ToList();  //Read(select by name)
+            return _db.NationalPark.OrderBy(a => a.Name).ToList();  //Read(select by name)
         }
 
         public bool UpdateNationalPark(NationalPark nationalPark)  //Update
@@ -44,7 +44,7 @@ namespace ParkiAPI.Repository.IRepository
 
         public bool NationalParkExists(string name)
         {
-            bool value = _db.NationalPark.Any(a => a.name.ToLower().Trim() == name.ToLower().Trim());
+            bool value = _db.NationalPark.Any(a => a.Name.ToLower().Trim() == name.ToLower().Trim());
             return value;
         }
 

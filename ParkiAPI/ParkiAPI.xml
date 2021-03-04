@@ -12,7 +12,27 @@
         </member>
         <member name="M:ParkiAPI.Controllers.NationalParksController.GetNationalPark(System.Int32)">
             <summary>
-            Get individual National Park.
+            Get individual National Park by Id.
+            </summary>
+            <param name="nationalParkId">The Id of the National Park</param>
+            <returns></returns>
+        </member>
+        <member name="M:ParkiAPI.Controllers.NationalParksController.CreateNationalPark(ParkiAPI.Models.NationalParkDto)">
+            <summary>
+            Post/Create National Park.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ParkiAPI.Controllers.NationalParksController.UpdateNationalPark(System.Int32,ParkiAPI.Models.NationalParkDto)">
+            <summary>
+            Patch National Park by Id.
+            </summary>
+            <param name="nationalParkId">The Id of the National Park</param>
+            <returns></returns>
+        </member>
+        <member name="M:ParkiAPI.Controllers.NationalParksController.DeleteNationalPark(System.Int32)">
+            <summary>
+            Delete National Park by Id.
             </summary>
             <param name="nationalParkId">The Id of the National Park</param>
             <returns></returns>

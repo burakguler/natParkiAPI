@@ -12,13 +12,12 @@ namespace ParkiAPI.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public string name { get; set; }
+        public string Name { get; set; }
         [Required]
-        public string location { get; set; }
-        public string area { get; set; }
-        public DateTime created { get; set; }
-        public DateTime listingDate { get; set; }
-
+        public string Location { get; set; }
+        public string Area { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime ListingDate { get; set; }
 
     }
 }
