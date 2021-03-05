@@ -36,6 +36,8 @@ namespace ParkiAPI
                 (options => options.UseSqlServer(Configuration.GetConnectionString("natParkiConnection")));
 
             services.AddScoped<INationalParkRepository, NationalParkRepository>();
+            services.AddScoped<ITrailRepository, TrailRepository>();
+
             /* ^ after this code you can access the national park repository on any of controllers
                 Creates an instance for each incoming web request and 
                 uses the same instance for each incoming request, 
