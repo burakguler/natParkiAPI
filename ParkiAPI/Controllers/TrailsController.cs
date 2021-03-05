@@ -8,8 +8,10 @@ using System.Collections.Generic;
 
 namespace ParkiAPI.Controllers
 {
-    [Route("api/Trails")] //static ~Burak
+    [Route("api/v/v{version:apiVersion}/trails")]
+    //[Route("api/Trails")] //static ~Burak
     [ApiController]
+    //[ApiExplorerSettings(GroupName = "natParkiOpenAPISpecTrails")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public class TrailsController : ControllerBase
     {
@@ -64,7 +66,32 @@ namespace ParkiAPI.Controllers
             return Ok(objDto);
         }
         /// <summary>
-        /// Post/Create Trail.
+        /// Get individual Trail by National Park Id.
+        /// </summary>
+        /// <param name="trailId">The Id of the Trail</param>
+        /// <returns></returns>
+        [HttpGet("GetTrailInNatPark/{nationalParkId:int}", Name = "GetTrailInNatPark")]
+        [ProducesResponseType(200, Type = typeof(TrailDto))]
+        [ProducesResponseType(404)]
+        [ProducesDefaultResponseType]
+        public IActionResult GetTrailInNationalPark(int nationalParkId) // gettingById singular item ~Burak
+        {
+            var objeList = this.trailRepository.GetTrailsInNationalPark(nationalParkId);
+
+            if (objeList == null)
+            {
+                return NotFound();
+            }
+            var objDto = new List<TrailDto>();
+            foreach (var obje in objeList)
+            {
+                objDto.Add(this.mapper.Map<TrailDto>(obje));
+            }
+            
+            return Ok(objDto);
+        }
+        /// <summary>
+        /// Create Trail.
         /// </summary>
         /// <returns></returns>
         [HttpPost]
@@ -72,7 +99,7 @@ namespace ParkiAPI.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult CreateTrail([FromBody] TrailDto trailDto)
+        public IActionResult CreateTrail([FromBody] TrailCreateDto trailDto) // we do not want to create trails with national Park's properties
         {
             if (trailDto == null) // if dto table/form null return bad request ~Burak
             {
@@ -102,7 +129,7 @@ namespace ParkiAPI.Controllers
             return CreatedAtRoute("GetTrail", new { trailId = trailobje.Id }, trailobje);
         }
         /// <summary>
-        /// Patch Trail by Id.
+        /// Update Trail by Id.
         /// </summary>
         /// <param name="trailId">The Id of the Trail</param>
         /// <returns></returns>
@@ -110,7 +137,7 @@ namespace ParkiAPI.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult UpdateTrail(int trailId, [FromBody] TrailDto trailDto)
+        public IActionResult UpdateTrail(int trailId, [FromBody] TrailUpdateDto trailDto)
         {
             if (trailDto == null || trailId != trailDto.Id) // if dto table/form null return bad request ~Burak
             {

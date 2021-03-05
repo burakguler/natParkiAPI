@@ -4,6 +4,12 @@
         <name>ParkiAPI</name>
     </assembly>
     <members>
+        <member name="M:ParkiAPI.Controllers.APIv2Controller.GetNationalParks">
+            <summary>
+            Get list of National Parks.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:ParkiAPI.Controllers.NationalParksController.GetNationalParks">
             <summary>
             Get list of National Parks.
@@ -19,13 +25,13 @@
         </member>
         <member name="M:ParkiAPI.Controllers.NationalParksController.CreateNationalPark(ParkiAPI.Models.NationalParkDto)">
             <summary>
-            Post/Create National Park.
+            Create National Park.
             </summary>
             <returns></returns>
         </member>
         <member name="M:ParkiAPI.Controllers.NationalParksController.UpdateNationalPark(System.Int32,ParkiAPI.Models.NationalParkDto)">
             <summary>
-            Patch National Park by Id.
+            Update National Park by Id.
             </summary>
             <param name="nationalParkId">The Id of the National Park</param>
             <returns></returns>
@@ -50,15 +56,22 @@
             <param name="trailId">The Id of the Trail</param>
             <returns></returns>
         </member>
-        <member name="M:ParkiAPI.Controllers.TrailsController.CreateTrail(ParkiAPI.Models.Dtos.TrailDto)">
+        <member name="M:ParkiAPI.Controllers.TrailsController.GetTrailInNationalPark(System.Int32)">
             <summary>
-            Post/Create Trail.
+            Get individual Trail by National Park Id.
+            </summary>
+            <param name="trailId">The Id of the Trail</param>
+            <returns></returns>
+        </member>
+        <member name="M:ParkiAPI.Controllers.TrailsController.CreateTrail(ParkiAPI.Models.Dtos.TrailCreateDto)">
+            <summary>
+            Create Trail.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ParkiAPI.Controllers.TrailsController.UpdateTrail(System.Int32,ParkiAPI.Models.Dtos.TrailDto)">
+        <member name="M:ParkiAPI.Controllers.TrailsController.UpdateTrail(System.Int32,ParkiAPI.Models.Dtos.TrailUpdateDto)">
             <summary>
-            Patch Trail by Id.
+            Update Trail by Id.
             </summary>
             <param name="trailId">The Id of the Trail</param>
             <returns></returns>

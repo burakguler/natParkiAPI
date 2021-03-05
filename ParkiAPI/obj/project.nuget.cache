@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "T9+3ceRMFKiNAdS6ddhAVNuuba0XhrRcodtiQ2YZESJlsUAQNH79AVbLOUfre5S/r5zmfVvvVCSBvrOUamleNg==",
+  "dgSpecHash": "9QUPDmybkyeVFHdGwUNl2d3NBQvVlBQtqWGotgQMqfgxGEfQ6Az++akwDUIQXJLiT9QLDkScW+4AvGTisPn7EQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Burak\\Documents\\GitHub\\natParkiAPI\\ParkiAPI\\ParkiAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Burak\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Burak\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\Burak\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\Burak\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.0.0\\microsoft.aspnetcore.mvc.versioning.5.0.0.nupkg.sha512",
+    "C:\\Users\\Burak\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning.apiexplorer\\5.0.0\\microsoft.aspnetcore.mvc.versioning.apiexplorer.5.0.0.nupkg.sha512",
     "C:\\Users\\Burak\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Burak\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\Burak\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",

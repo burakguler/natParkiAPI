@@ -14,6 +14,7 @@ namespace ParkiAPI.Models
         [Required]
         public string Location { get; set; }
         public string Area { get; set; }
+        public byte[] Image { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime ListingDate { get; set; }
 

@@ -7,12 +7,14 @@ using System.Collections.Generic;
 
 namespace ParkiAPI.Controllers
 {
-    [Route("api/[controller]")] //changeable ~Burak
+    [Route("api/v/{version:apiVersion}/nationalparks")]
+    //[Route("api/[controller]")] //changeable ~Burak
     [ApiController]
+    //[ApiExplorerSettings(GroupName = "natParkiOpenAPISpecNationalParks")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public class NationalParksController : ControllerBase
     {
-        private INationalParkRepository nationalParkRepository;
+        private readonly INationalParkRepository nationalParkRepository;
         private readonly IMapper mapper;
 
         public NationalParksController(
@@ -63,7 +65,7 @@ namespace ParkiAPI.Controllers
             return Ok(objDto);
         }
         /// <summary>
-        /// Post/Create National Park.
+        /// Create National Park.
         /// </summary>
         /// <returns></returns>
         [HttpPost]
@@ -98,10 +100,11 @@ namespace ParkiAPI.Controllers
                return StatusCode(500, ModelState);
             }
 
-            return CreatedAtRoute("GetNationalPark", new { nationalParkId=nationalParkobje.Id},nationalParkobje);
+            return CreatedAtRoute("GetNationalPark", new {version=HttpContext.GetRequestedApiVersion().ToString(), 
+                                                          nationalParkId=nationalParkobje.Id},nationalParkobje);
         }
         /// <summary>
-        /// Patch National Park by Id.
+        /// Update National Park by Id.
         /// </summary>
         /// <param name="nationalParkId">The Id of the National Park</param>
         /// <returns></returns>
